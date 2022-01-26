@@ -1,0 +1,37 @@
+#1
+
+nums = list(range(30, 65, 5))
+print(nums)
+
+nums_mod = nums[::-1]
+print(nums_mod)
+
+a = [65]
+a + nums_mod
+
+#2
+
+nums2 = list(range(21))
+nums2
+
+nums2.remove(0)
+print(nums2)
+
+print(len(nums2))
+print(max(nums2))
+print(min(nums2))
+
+sum1 = sum(nums2)
+print(sum1)
+
+#3
+
+mydict = {"Sunny": "play", "Rainy": "watch TV", "Cloudy": "Walk"}
+print(mydict)
+
+for key in mydict:
+    print("When", key, "let us", mydict[key])
+
+mydict.update({"Snowy": "Ski"})
+for key in mydict:
+     print("When", key, "let us", mydict[key])
