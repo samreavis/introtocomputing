@@ -1,0 +1,76 @@
+#Question 1
+thismatrix1 <- matrix(c(7,2,9,4,12,13), nrow = 2, ncol = 3 )
+thismatrix1
+
+thismatrix2 <- matrix(c(1,2,3,7,8,9,12,13,14,18,19,20), nrow = 3, ncol = 4)
+thismatrix2
+
+thismatrix1 %*% thismatrix2
+
+#Question 2
+#a
+Data_Frame <- data.frame (
+  id = c(1,2,3,4,5),
+  name = c("Peter", "Amy", "Ryan", "Gary", "Michelle"),
+  salary = c(623.30, 515.20, 611.00, 729.00, 843.25)
+)
+
+Data_Frame
+
+#b
+New_col_DF <- cbind(Data_Frame, Department = c("IT", "Finance", "Operations", "Computer Science", "Engineering"))
+
+New_col_DF
+
+#c
+Data_Frame[c(1,3,5), c(2,3)]
+
+#d
+mylabels <- c("Highest Salary", "Lowest Salary", "Median Salary")
+max <- max(Data_Frame$salary)
+min <- min(Data_Frame$salary)
+median <- median(Data_Frame$salary)
+x <- c(max, min, median)
+pie(x, main = "Salaries", labels = mylabels )
+
+
+#Question 3
+amazon <- read.csv("Amazon.csv")
+amazon
+
+dim(amazon)
+
+amazon$Total.Charged = as.numeric(gsub("\\$", "", amazon$Total.Charged))
+amazon
+
+sum(amazon$Total.Charged)
+max(amazon$Total.Charged)
+min(amazon$Total.Charged)
+mean(amazon$Total.Charged)
+median(amazon$Total.Charged)
+mean(amazon$Total.Charged)
+
+amazon$Tax.Charged = as.numeric(gsub("\\$", "", amazon$Tax.Charged))
+amazon
+
+sum(amazon$Tax.Charged)
+max(amazon$Tax.Charged)
+min(amazon$Tax.Charged)
+mean(amazon$Tax.Charged)
+median(amazon$Tax.Charged)
+mean(amazon$Tax.Charged)
+
+plot(amazon$Order.Date, amazon$Total.Charged)
+
+amazon$Order.date <- as.Date(amazon$Order.Date, format = "%m-%d-%Y")
+format(amazon$Order.Date, format = "%Y")
+amazon
+
+amazon$Shipping.Charge= as.numeric(gsub("\\$", "", amazon$Shipping.Charge))
+pie(amazon$Shipping.Charge)
+pie(amazon$Total.Charged)
+
+amazon$Order.Date <- format(amazon$Order.Date, format = "%YY")
+amazon
+
+plot(amazon$Total.Charged, amazon$Order.Date)
